@@ -1,0 +1,186 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "49dd6badeb2c8b72f3391d23bceb8973396db384"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "Launcher/1.0.0": {
+        "dependencies": {
+          "Abathur": "0.1.0",
+          "Newtonsoft.Json": "11.0.1",
+          "protobuf": "2.6.1.1"
+        },
+        "runtime": {
+          "Launcher.dll": {}
+        }
+      },
+      "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+        "dependencies": {
+          "System.Security.Permissions": "4.4.0-preview1-25305-02"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CoreCompat.System.Drawing.dll": {}
+        }
+      },
+      "Google.Protobuf/3.5.1": {
+        "runtime": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/2.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Newtonsoft.Json/11.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "protobuf/2.6.1.1": {},
+      "System.Security.AccessControl/4.4.0-preview1-25305-02": {
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.4.0-preview1-25305-02"
+        },
+        "runtimeTargets": {
+          "runtime/unix/lib/_._": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
+      "System.Security.Permissions/4.4.0-preview1-25305-02": {
+        "dependencies": {
+          "System.Security.AccessControl": "4.4.0-preview1-25305-02"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.4.0-preview1-25305-02": {
+        "runtimeTargets": {
+          "runtime/unix/lib/_._": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
+      "Abathur/0.1.0": {
+        "dependencies": {
+          "CoreCompat.System.Drawing.v2": "5.2.0-preview1-r131",
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "NydusNetwork": "0.1.1"
+        },
+        "runtime": {
+          "Abathur.dll": {}
+        }
+      },
+      "NydusNetwork/0.1.1": {
+        "dependencies": {
+          "Google.Protobuf": "3.5.1"
+        },
+        "runtime": {
+          "NydusNetwork.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Launcher/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+WrScg+skrIiNLBwbl+BFdlSyzUqKOZtAUskW2xfI8vcKQdDJp+UoreUFC9uMSEgSiAR32e5l3fTtFDUKEpRaA==",
+      "path": "corecompat.system.drawing.v2/5.2.0-preview1-r131",
+      "hashPath": "corecompat.system.drawing.v2.5.2.0-preview1-r131.nupkg.sha512"
+    },
+    "Google.Protobuf/3.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f2k1VNaB9bfvEsvARzzEL1TZiIpL33KKK3JMH7UANlPlJVptuvsk4qpBZEnz0pORWZOdUHlVwMQuUzFqjJYCxA==",
+      "path": "google.protobuf/3.5.1",
+      "hashPath": "google.protobuf.3.5.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wakg18gHYiUL1pcjjyZuYk6OvDpbSw1E7IWxm78TMepsr+gQ8W0tWzuRm0q/9RFblngwPwo15rrgZSUV51W5Iw==",
+      "path": "microsoft.extensions.dependencyinjection/2.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eUdJ0Q/GfVyUJc0Jal5L1QZLceL78pvEM9wEKcHeI24KorqMDoVX+gWsMGLulQMfOwsUaPtkpQM2pFERTzSfSg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/2.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/11.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
+      "path": "newtonsoft.json/11.0.1",
+      "hashPath": "newtonsoft.json.11.0.1.nupkg.sha512"
+    },
+    "protobuf/2.6.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4nR8C+GWm3paVn9MczwpqxB3BcvTjqQv8QCxnrGRPh4S3Vnv/SdtVm2JzebUgxDbawIpPbUzrGOmxggh06pP2g==",
+      "path": "protobuf/2.6.1.1",
+      "hashPath": "protobuf.2.6.1.1.nupkg.sha512"
+    },
+    "System.Security.AccessControl/4.4.0-preview1-25305-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E3acs1/hAThiFxLFwfS0XXEOk/qw9+Wf2He4y0hj8ZQ7wQZum4/q7nv+zHUA/MigdYChM94qTArnUWkXdcFNkw==",
+      "path": "system.security.accesscontrol/4.4.0-preview1-25305-02",
+      "hashPath": "system.security.accesscontrol.4.4.0-preview1-25305-02.nupkg.sha512"
+    },
+    "System.Security.Permissions/4.4.0-preview1-25305-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W4+sOQhP/hijYNMx/TQK2zXP1+8a9WYAvuMQS4XBe+Phfv8fqc4h+U/fzkWC5BuNN0InNY46F5WT1bbOyObQdg==",
+      "path": "system.security.permissions/4.4.0-preview1-25305-02",
+      "hashPath": "system.security.permissions.4.4.0-preview1-25305-02.nupkg.sha512"
+    },
+    "System.Security.Principal.Windows/4.4.0-preview1-25305-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-i/87uUlutjoXKIGEgjAh6tzpFtwhBZxMqX+ZW38UoJqHxaW0+cglUovfEfPRJeEYFhck9SqJqJnEqsVvAgu6oQ==",
+      "path": "system.security.principal.windows/4.4.0-preview1-25305-02",
+      "hashPath": "system.security.principal.windows.4.4.0-preview1-25305-02.nupkg.sha512"
+    },
+    "Abathur/0.1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NydusNetwork/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
