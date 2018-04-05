@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "49dd6badeb2c8b72f3391d23bceb8973396db384"
+    "signature": "bca7a0c6d497140b37c034ec8f2bbd916ec4e53c"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,7 +9,6 @@
       "Launcher/1.0.0": {
         "dependencies": {
           "Abathur": "0.1.0",
-          "Newtonsoft.Json": "11.0.1",
           "protobuf": "2.6.1.1"
         },
         "runtime": {
@@ -42,7 +41,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Newtonsoft.Json/11.0.1": {
+      "Newtonsoft.Json/11.0.2": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
@@ -95,7 +94,8 @@
       },
       "NydusNetwork/0.1.1": {
         "dependencies": {
-          "Google.Protobuf": "3.5.1"
+          "Google.Protobuf": "3.5.1",
+          "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
           "NydusNetwork.dll": {}
@@ -137,12 +137,12 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.1": {
+    "Newtonsoft.Json/11.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
-      "path": "newtonsoft.json/11.0.1",
-      "hashPath": "newtonsoft.json.11.0.1.nupkg.sha512"
+      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "path": "newtonsoft.json/11.0.2",
+      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
     },
     "protobuf/2.6.1.1": {
       "type": "package",
