@@ -86,6 +86,8 @@ Improve your AI.
 ## More information
 For more detailed information about the framework and it's functionality check out [AbathurBot](https://github.com/schmidtgit/AbathurBot), Abathurs homepage [https://adequatesource.com/](https://adequatesource.com/) or the full [c# framework](https://github.com/schmidtgit/Abathur)
 
+Finally we would greatly appreciate if you would fill out our [survey](https://docs.google.com/forms/d/e/1FAIpQLSc1AFiGvhOCqOSCjVUXUHmB6zjd0nIL1jShNUoDiyOZEr_ymw/viewform) if you are interested in writing a bot
+
 ## Get Protobuf
 If you do not have protobuf for python installed you will have to do so. For Windows users you can run "WinInstallProtobuf" from the commando promp and this will be done for you. However for linux and mac you will have to download or compile the [appropriate protoc binaries](https://github.com/google/protobuf/releases/tag/v3.5.1) and run the setup.py as:
 ```
