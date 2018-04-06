@@ -1,8 +1,8 @@
-This is the Python proxy for the Abathur Framework And allow for the creation of Starcraft 2 AI's. To get started with programming your AI in python follow these steps.
+This is the Python proxy for the Abathur Framework And allows for the creation of Starcraft 2 AI's. To get started with programming your AI in python follow these steps.
 
-### 1
+### Step 1
 
-make sure you have:
+Make sure you have:
 
 [Starcraft II](https://starcraft2.com/)
 
@@ -14,17 +14,18 @@ make sure you have:
 
 Forked this repo
 
-### 2 
-open a console in the repo and run the Launcher.dll 
+### Step 2 
+Open a console in the repo and run the Launcher.dll 
 
 ```
 dotnet Launcher.dll
 ```
-running the launcher for the first time will generate the settingsfiles in \data from where you can maniuplate them to your liking. Enjoy our async module playing against a very easy bot or shut down the program and continue to step 5.
+Running the launcher for the first time will generate the settingsfiles in \data from where you can maniuplate them to your liking. Enjoy our async module playing against a very easy bot or shut down the program and continue to step 5.
 
-### 3
+### Step 3
 
-If everything has worked up till now you will now simply have create a class implementing from IModule or IAsyncModule. We reccomend implementing an IAsyncModule as the python proxy is much slower than the c# stepmodules. For instance use the MyModule class as a starting point.
+If everything has worked up till now you will have to create a class implementing from IModule or IAsyncModule. We reccomend implementing an IAsyncModule as the python proxy is much slower than the c# stepmodules. For instance use MyModule.py as a starting point.
+
 ```
 class MyModule(IAsyncModule):
     def __init__(self, proxy_man):
@@ -44,9 +45,9 @@ class MyModule(IAsyncModule):
         print("Do somthing as the game restarted")
 ```
 
-### 4
+### Step 4
 
-once you have a class implementing from one of the IModules you need to add it to the gameloop. For this you need a class inheriting from Nydusworm and implementing the method add_modules(You can just use the DummyLauncher.py):
+Once you have a class implementing from one of the IModules you need to add it to the gameloop. For this you need a class inheriting from Nydusworm and implementing the method add_modules(You can just use the DummyLauncher.py):
 
 ```
 import sys
@@ -72,20 +73,20 @@ launcher.launch_framework(sys.argv)
 ```
 [What is manager and services?](#what-are-the-parameters-to-add_module)
 
-### 5
-Once you have added the module in the launcher, if you used DummyLauncher.py you can simply run the program like in step 2. Otherwise you will have to 
-
-Go to \data and open the setup.json file and replace Dummylauncher.py with the name of your launcher in
+### Step 5
+Once you have added the module in the launcher, if you used DummyLauncher.py you can simply run the program like in step 2. Otherwise you will have to go to \data, open the setup.json file and replace Dummylauncher.py with the name of your launcher in
 
 "\\"python NydusWorm\\\\DummyLauncher.py\\"" 
 
 [what is this string?](#what-is-the-module-string)
 
-### 6
+### Step 6
+Improve your AI. 
 
-Make a cool AI. For more detailed information about the framework and it's functionality check out [AbathurBot](https://github.com/schmidtgit/AbathurBot), Abathurs homepage [https://adequatesource.com/](https://adequatesource.com/) or the full [c# framework](https://github.com/schmidtgit/Abathur)
+## More information
+For more detailed information about the framework and it's functionality check out [AbathurBot](https://github.com/schmidtgit/AbathurBot), Abathurs homepage [https://adequatesource.com/](https://adequatesource.com/) or the full [c# framework](https://github.com/schmidtgit/Abathur)
 
-### Get Protobuf
+## Get Protobuf
 If you do not have protobuf for python installed you will have to do so. For Windows users you can run "WinInstallProtobuf" from the commando promp and this will be done for you. However for linux and mac you will have to download or compile the [appropriate protoc binaries](https://github.com/google/protobuf/releases/tag/v3.5.1) and run the setup.py as:
 ```
 python setup.py build
@@ -94,7 +95,7 @@ python setup.py install
 ```
 or see [googles own guide](https://github.com/google/protobuf/tree/master/python)
 
-### What are the parameters to add_module
+## What are the parameters to add_module
 "manager" is the ProxyManager that is in charge of communication with the c# framework and gives access to rawRequests along with being used for most of the proxy's internal control. Every async module will need to take this in their __init__ method to be able to request intel.
 
 "services" is a dictionary going from the type of a service to the only allowed instance of that type in the program. The services provides diffrent functionalities that will make the AI programming a lot easier than using rawRequests. The available services are:
@@ -107,10 +108,10 @@ UnitTypeRepository
 UpgradeRepository
 RequirementRepository
 
-Their functionalities are simmilar to the one of their equivalents in the [c# framework](https://github.com/schmidtgit/AbathurBot/blob/master/AbathurBot/Modules/FullModule.cs). 
+Their functionalities are simmilar to the ones of their equivalents in the [c# framework](https://github.com/schmidtgit/AbathurBot/blob/master/AbathurBot/Modules/FullModule.cs). 
 
 
-### What is the module string
+## What is the module string
 The string added when you add a module to the setupfile is the command to run the DummyLauncher.py file as a module instead of the class name of the module. eg add:
 
 "python "{path}\\\\DummyLauncher.py""
