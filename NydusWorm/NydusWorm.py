@@ -6,8 +6,8 @@ import threading
 import abathur_pb2
 import essence_pb2
 import proxy_manager
-import i_async_module
-import i_module
+import IAsyncModule
+import IModule
 from AbilityRepository import AbilityRepository
 from BuffRepository import BuffRepository
 from UnitTypeRepository import UnitTypeRepository
@@ -19,12 +19,21 @@ from IntelManager import IntelManager
 from abc import ABC, abstractmethod
 essence_path = ".\\data\\essence.data"
 
+
 class NydusWorm(ABC):
+    """Launcher class for the python proxy. extend this, implement "add_modules"
+       and call "launch_framework" to connect to c#"""
     def __init__(self):
         self.man = None
         self.only_async = True
 
     def handle_notification(self, manag, m):
+        """Calls appropriate modules callback depending on notification type
+
+        Keyword arguments:
+        manag -- ProxyManager containing the active modules
+        m     -- the notification being handled
+        """
         if m.notification.type == abathur_pb2.Initialize:
             for module in manag.modules:
                 module.initialise()
@@ -35,7 +44,7 @@ class NydusWorm(ABC):
             return True
         if m.notification.type == abathur_pb2.GameStep:
             for module in manag.modules:
-                if not isinstance(module, i_async_module.IAsyncModule):
+                if not isinstance(module, IAsyncModule.IAsyncModule):
                     module.game_step()
             return True
         if m.notification.type == abathur_pb2.GameEnded:
@@ -53,7 +62,8 @@ class NydusWorm(ABC):
         """Adds all modules that should be called during program execution
 
            Keyword arguments:
-           manager -- The ProxyManager
+           manager -- The ProxyManager giving access to rawcommands and managing the connection  to c#
+           services -- a dictionary holding {type : service} pairs.
         """
         print("add all the modules you want to run in the framework")
 
@@ -107,7 +117,7 @@ class NydusWorm(ABC):
             services.update({type(intel_man): intel_man})
             self.add_modules(self.man, services) #TODO put proxy manager in services?
             for mod in self.man.modules:
-                if isinstance(mod, i_module.IModule):
+                if isinstance(mod, IModule.IModule):
                     self.only_async = False
 
             t = threading.Thread(target=self.man.receive)

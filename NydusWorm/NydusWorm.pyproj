@@ -40,19 +40,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DummyLauncher.py" />
-    <Compile Include="dummy_async_module.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ICombatManager.py">
+    <Compile Include="DummyAsyncModule.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IntelUnit.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IProductionManager.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="i_async_module.py">
+    <Compile Include="IAsyncModule.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProductionManager.py">
@@ -74,11 +68,11 @@
     <Compile Include="protocol\common_pb2.py" />
     <Compile Include="protocol\data_pb2.py" />
     <Compile Include="protocol\debug_pb2.py" />
-    <Compile Include="dummy_module.py">
+    <Compile Include="DummyModule.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="protocol\error_pb2.py" />
-    <Compile Include="i_module.py">
+    <Compile Include="IModule.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IntelManager.py">

@@ -1,5 +1,6 @@
 class RequirementRepository:
-    """description of class"""
+    """Class containing all requirements for units and upgrades. including
+       producers and tech requirements"""
     unit_producers = {}
     unit_required_buildings = {}
     research_producers = {}

@@ -6,7 +6,8 @@ import abathur_pb2
 import uuid
 
 
-class Squad():
+class Squad:
+    """Class allowing for groups of units to be treated as one"""
     def __init__(self, name):
         self.id = uuid.uuid4().int & (1<<64)-1
         self.name = name
@@ -14,6 +15,11 @@ class Squad():
         self.requests = []
 
     def add_unit(self, unit):
+        """
+        Add a unit to the squad and notify c# of the addition
+        :param unit: IntelUnit to be added
+        :return: True if the unit was added False if it was not(it already was there)
+        """
         combat_req = abathur_pb2.CombatRequest()
         squad_req = abathur_pb2.SquadRequest()
         add_units = abathur_pb2.AddUnits()
@@ -25,6 +31,11 @@ class Squad():
         return self.units.add(unit)
 
     def add_units(self, units):
+        """
+        add units to the squad
+        :param units: list of IntelUnits to be added
+        :return: amount of addded units
+        """
         added = 0
         tags = []
         for unit in units:
@@ -42,6 +53,11 @@ class Squad():
         return added
 
     def remove_unit(self, unit):
+        """
+        remove a unit from the squad
+        :param unit: IntelUnit to be removed
+        :return: None
+        """
         combat_req = abathur_pb2.CombatRequest()
         squad_req = abathur_pb2.SquadRequest()
         remove_units = abathur_pb2.RemoveUnits()
@@ -53,6 +69,11 @@ class Squad():
         self.units.remove(unit)
 
     def remove_units(self, units):
+        """
+        Remove a list of units from the squad
+        :param units: List of units to remove
+        :return: amount of removed units
+        """
         remove = 0
         tags = []
         for unit in units:

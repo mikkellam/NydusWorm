@@ -27,7 +27,29 @@ class IAsyncModule(ABC):
                              workers_enemy=True, primary_colony=True, colonies=True,
                              mineral_fields=True, VespeneGeysers=True, production_queue=True,
                              squads=True, game_loop=True):
-        """method that requests an update of the intel database"""
+        """
+        method that requests an update of the IntelManager
+
+        :param mmap: receive data about the map
+        :param score: receive data about the score
+        :param common: receive the PlayerCommon data object
+        :param upgrades_self: receive what upgrades you have
+        :param buildings_self: reveive what buildings you have
+        :param units_self: receive what units you have
+        :param workers_self: receive what workers you have
+        :param destructibles: receive all destructible units
+        :param structures_enemy: receive seen enemy structures
+        :param units_enemy: receive seen enemy units
+        :param workers_enemy: receive seen enemy workers
+        :param primary_colony: receive data about your starting colony
+        :param colonies: receive data about all colonies
+        :param mineral_fields: receive data about all mineralfields
+        :param VespeneGeysers: receive data about all vespene geysers
+        :param production_queue: receive the production queue
+        :param squads: receive all squads
+        :param game_loop: receive the current gameloop
+        :return: None
+        """
         intel_req = abathur_pb2.IntelRequest()
         intel_req.map = mmap
         intel_req.score = score

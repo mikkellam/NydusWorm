@@ -5,13 +5,19 @@ sys.path.insert(0, dir_path + "/protocol")
 import abathur_pb2
 from Squad import Squad
 
+
 class SquadRepository:
-    """description of class"""
+    """Repository in charge managing squads"""
     def __init__(self):
         self.squads = {}
         self.requests = []
 
     def create(self, name):
+        """
+        Create a new squad with the given name
+        :param name: name of the squad
+        :return: The Created Squad
+        """
         squad = Squad(name)
         combat_req = abathur_pb2.CombatRequest()
         squad_req = abathur_pb2.SquadRequest()
@@ -28,6 +34,8 @@ class SquadRepository:
         return squad
 
     def internal_update(self, squad_id, name):
+        """Internal method used to update squads with intel received from a IntelResponse
+           UPDATES MADE WITH THIS METHOD WILL NOT BE SENT TO C# AND WILL BE OVERWRITTEN"""
         if self.squads.__contains__(squad_id):
             squad = self.squads.get(squad_id)
         else:
@@ -50,6 +58,7 @@ class SquadRepository:
         return self.squads
 
     def remove(self, squad):# TODO Remove this method?
+        """Remove given squad from the repository"""
         combat_req = abathur_pb2.CombatRequest()
         squad_req = abathur_pb2.SquadRequest()
         remove_squad_req = abathur_pb2.RemoveSquad()

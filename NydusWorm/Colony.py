@@ -4,9 +4,7 @@ import sys
 sys.path.insert(0, dir_path + "/protocol")
 
 import common_pb2
-import sc2api_pb2
-import abathur_pb2
-import data_pb2
+
 
 class Colony:
     """class modeling a base with its mineral fields, vespene geyers, workers and buildings"""

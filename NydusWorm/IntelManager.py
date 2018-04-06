@@ -35,6 +35,10 @@ class IntelManager:
         self.squad_repository = SquadRepository()
 
     def update_intel(self, intel):
+        """
+        :param intel: an intel response object containing all requested data
+        :return: None
+        """
         if intel.HasField("map"):
             self.map.CopyFrom(intel.map)  # TODO this is an empty datastructure atm
         if intel.HasField("score"):
@@ -93,6 +97,7 @@ class IntelManager:
             self.handler.handle(event.case_type, self.try_get(event.unit_tag))
 
     def set_intel_empty(self):
+        """reset all data in the IntelManager"""
         self.map = abathur_pb2.AbathurMap() #TODO this is an empty datastructe atm
         self.score = score_pb2.Score()
         self.common = sc2api_pb2.PlayerCommon()
@@ -115,27 +120,48 @@ class IntelManager:
         return self.mineral_fields.values()
 
     def try_get_vespene_geysers(self, tag):
+        """
+        :param tag: tag of geyser
+        :return: IntelUnit or None
+        """
         return self.vespene_geysers.get(tag)
 
     def get_vespene_geysers(self):
         return self.vespene_geysers.values()
 
     def try_get_building_self(self, tag):
+        """
+        :param tag: tag of building
+        :return: IntelUnit or None
+        """
         return self.buildings_self.get(tag)
 
     def get_buildings_self(self):
         return self.buildings_self.values()
 
     def try_get_units_self(self,tag):
+        """
+        :param tag: tag of unit
+        :return: IntelUnit or None
+        """
         return self.units_self.get(tag)
 
     def get_units_self(self):
         return self.units_self.values()
 
-    def try_get_worker_self(self,tag):
+    def try_get_worker_self(self, tag):
+        """
+        :param tag: tag of worker
+        :return: IntelUnit or None
+        """
         return self.workers_self.get(tag)
 
     def try_get(self, tag):
+        """
+        try getting the IntelUnit with "tag" from any data
+        :param tag: tag of IntelUnit to retrieve
+        :return: IntelUnit if success None otherwise
+        """
         res = self.units_self.get(tag)
         if res is not None:
             return res
@@ -168,6 +194,10 @@ class IntelManager:
         return self.workers_self.values()
 
     def try_get_destructible(self, tag):
+        """
+        :param tag: tag of destructible
+        :return: IntelUnit or None
+        """
         return self.destructibles.get(tag)
 
     def get_destructibles(self):
@@ -198,11 +228,21 @@ class IntelManager:
                 yield worker
 
     def buildings_self(self, *types):
+        """
+        retreive all of the buildings you own which have any of the types given in types
+        :param types: types the retrieved buildings must have
+        :return: list of IntelUnit or None
+        """
         for structure in self.buildings_self.values():
             if structure.unit_type in types:
                 yield structure
 
     def units_self(self, *types):
+        """
+        retreive all units you own which have any of the types given in "types"
+        :param types: types the retreived units must have
+        :return: list of IntelUnit or None
+        """
         for unit in self.units_self.values():
             if unit.unit_type in types:
                 yield unit

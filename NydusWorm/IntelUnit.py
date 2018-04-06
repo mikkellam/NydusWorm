@@ -6,12 +6,15 @@ sys.path.insert(0, dir_path + "/protocol")
 import raw_pb2
 
 
-class IntelUnit():
+class IntelUnit:
+    """Class wrapping a protobuf Unit to allow for automatic update and the addition of
+       the last_seen attribute"""
     def __init__(self, unit, last_seen):
         self.unit = unit
         self.last_seen = last_seen
 
     def set_unit(self, unit, last_seen):
+        """Internal method do not use"""
         self.unit = unit
         self.last_seen = last_seen
 
