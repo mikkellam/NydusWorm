@@ -70,7 +70,7 @@ class DummyLauncher(NydusWorm):
 launcher = DummyLauncher()
 launcher.launch_framework(sys.argv)
 ```
-[What is manager and services?](#What-are-the-parameters-to-add_module?)
+[What is manager and services?](#what-are-the-parameters-to-add_module?)
 
 ### 5
 Once you have added the module in the launcher, if you used DummyLauncher.py you can simply run the program like in step 2. Otherwise you will have to 
@@ -79,7 +79,7 @@ Go to \data and open the setup.json file and replace Dummylauncher.py with the n
 
 "\\"python NydusWorm\\\\DummyLauncher.py\\"" 
 
-[what is this string?](#What-is-the-module-string?)
+[what is this string?](#what-is-the-module-string?)
 
 ### 6
 
