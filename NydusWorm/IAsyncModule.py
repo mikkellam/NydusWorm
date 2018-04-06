@@ -21,7 +21,7 @@ class IAsyncModule(ABC):
         """callback method. Called when the sc2 game is started"""
         print("implement game_start")
 
-    def request_intel_update(self, mmap=True, score=True, common=True, upgrades_self=True,
+    def request_intel_update(self, wait = True, mmap=True, score=True, common=True, upgrades_self=True,
                              buildings_self=True, units_self=True, workers_self=True,
                              destructibles=True, structures_enemy=True, units_enemy=True,
                              workers_enemy=True, primary_colony=True, colonies=True,
@@ -30,6 +30,7 @@ class IAsyncModule(ABC):
         """
         method that requests an update of the IntelManager
 
+        :param wait: wait for a response?
         :param mmap: receive data about the map
         :param score: receive data about the score
         :param common: receive the PlayerCommon data object
@@ -71,7 +72,8 @@ class IAsyncModule(ABC):
         intel_req.game_loop = game_loop
         self.proxy_man.intel_received.clear()
         self.proxy_man.answers.put(intel_req)
-        self.proxy_man.intel_received.wait()
+        if wait:
+            self.proxy_man.intel_received.wait()
 
     @abstractmethod
     def game_ended(self):

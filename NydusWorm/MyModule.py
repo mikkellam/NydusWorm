@@ -10,7 +10,7 @@ class MyModule(IAsyncModule):
 
     def game_start(self):
         print("Do as the game starts")
-        self.request_intel_update()  # request intel when you need it rather than getting it each step.
+        self.request_intel_update(wait=False)  # request intel when you need it rather than getting it each step.
 
     def game_ended(self):
         print("When the game ends")
