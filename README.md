@@ -43,7 +43,15 @@ or see [googles own guide](https://github.com/google/protobuf/tree/master/python
 
 ### 6
 
-Now you will have to write your python module, but to check that everything is working first try running one of the dummy modules: Go to \data and open the setup.json file and remove the "EmptyModule","RandomDemo" and "AutoSupply" modules from the json and add the command to run the DummyLauncher.py file as a module instead. eg add "python "{path}\\DummyLauncher.py"". Furthermore if you want to make sure the dummymodule does somthing open gamesettings.json and change `"ParticipantRace":4,` to `"ParticipantRace":1,` indicating that the participant will be playing terran and not random. Now run the Launcher again like in step 4.
+Now you will have to write your python module, but to check that everything is working first try running one of the dummy modules: Go to \data and open the setup.json file and remove the "EmptyModule","RandomDemo" and "AutoSupply" modules from the json and add the command to run the DummyLauncher.py file as a module instead. eg add:
+
+"python "{path}\\DummyLauncher.py""
+
+or
+
+"python \\"NydusWorm\\\DummyLauncher.py\\"" if you have not moved the files. 
+
+Furthermore if you want to make sure the dummymodule does somthing open gamesettings.json and change `"ParticipantRace":4,` to `"ParticipantRace":1,` indicating that the participant will be playing terran and not random. Now run the Launcher again like in step 4.
 
 ### 7
 
