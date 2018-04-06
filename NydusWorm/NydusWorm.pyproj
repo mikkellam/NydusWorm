@@ -49,6 +49,9 @@
     <Compile Include="IAsyncModule.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MyModule.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ProductionManager.py">
       <SubType>Code</SubType>
     </Compile>
