@@ -70,7 +70,7 @@ class DummyLauncher(NydusWorm):
 launcher = DummyLauncher()
 launcher.launch_framework(sys.argv)
 ```
-[What is manager and services?](#what-are-the-parameters-to-add_module?)
+[What is manager and services?](#what-are-the-parameters-to-add_module)
 
 ### 5
 Once you have added the module in the launcher, if you used DummyLauncher.py you can simply run the program like in step 2. Otherwise you will have to 
@@ -79,7 +79,7 @@ Go to \data and open the setup.json file and replace Dummylauncher.py with the n
 
 "\\"python NydusWorm\\\\DummyLauncher.py\\"" 
 
-[what is this string?](#what-is-the-module-string?)
+[what is this string?](#what-is-the-module-string)
 
 ### 6
 
@@ -94,7 +94,7 @@ python setup.py install
 ```
 or see [googles own guide](https://github.com/google/protobuf/tree/master/python)
 
-### What are the parameters to add_module?
+### What are the parameters to add_module
 "manager" is the ProxyManager that is in charge of communication with the c# framework and gives access to rawRequests along with being used for most of the proxy's internal control. Every async module will need to take this in their __init__ method to be able to request intel.
 
 "services" is a dictionary going from the type of a service to the only allowed instance of that type in the program. The services provides diffrent functionalities that will make the AI programming a lot easier than using rawRequests. The available services are:
@@ -110,7 +110,7 @@ RequirementRepository
 Their functionalities are simmilar to the one of their equivalents in the [c# framework](https://github.com/schmidtgit/AbathurBot/blob/master/AbathurBot/Modules/FullModule.cs). 
 
 
-### What is the module string?
+### What is the module string
 The string added when you add a module to the setupfile is the command to run the DummyLauncher.py file as a module instead of the class name of the module. eg add:
 
 "python "{path}\\\\DummyLauncher.py""
