@@ -6,7 +6,7 @@ Make sure you have:
 
 [Starcraft II](https://starcraft2.com/)
 
-[The dotnetcore(version 2.1.103)](https://www.microsoft.com/net/download/windows)
+[The dotnetcore SDK(version 2.1.103)](https://www.microsoft.com/net/download/windows)
 
 [Python(3.6.4)](https://www.python.org/downloads/)
 
