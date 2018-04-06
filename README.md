@@ -20,7 +20,7 @@ Open a console in the repo and run the Launcher.dll
 ```
 dotnet Launcher.dll
 ```
-Running the launcher for the first time will generate the settingsfiles in \data from where you can maniuplate them to your liking. Enjoy our async module playing against a very easy bot or shut down the program and continue to step 5.
+Running the launcher for the first time will generate the settingsfiles in \data from where you can maniuplate them to your liking. Enjoy our async module playing against a very easy bot or shut down the program and continue to step 3.
 
 ### Step 3
 
