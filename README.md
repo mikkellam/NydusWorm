@@ -1,4 +1,4 @@
-This is the Python proxy for the Abathur Framework And allows for the creation of Starcraft 2 AI's. To get started with programming your AI in python follow these steps.
+This is the Python proxy for the Abathur Framework And allows for the creation of Starcraft 2 AI's. To get started with programming your AI in python follow the steps below or watch the tutorial videos [Quick setup](https://www.youtube.com/watch?v=Gg5MtiS8nsU&t=) and [Creating a bot using services](https://www.youtube.com/watch?v=eSd7tQn_4h0)
 
 ### Step 1
 
@@ -117,3 +117,5 @@ The string added when you add a module to the setupfile is the command to run th
 "python "{path}\\\\DummyLauncher.py""
 
 Runs dummy launcher with the framework. You cannot simply run this command from the command line as there will be a port added to the arguments from c# at runtime.
+
+
