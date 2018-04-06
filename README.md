@@ -26,7 +26,7 @@ Running the launcher for the first time will generate the settingsfiles in \data
 
 If everything has worked up till now you will have to create a class implementing from IModule or IAsyncModule. We reccomend implementing an IAsyncModule as the python proxy is much slower than the c# stepmodules. For instance use MyModule.py as a starting point.
 
-```
+```python
 class MyModule(IAsyncModule):
     def __init__(self, proxy_man):
         IAsyncModule.__init__(self, proxy_man)
@@ -49,7 +49,7 @@ class MyModule(IAsyncModule):
 
 Once you have a class implementing from one of the IModules you need to add it to the gameloop. For this you need a class inheriting from Nydusworm and implementing the method add_modules(You can just use the DummyLauncher.py):
 
-```
+```python
 import sys
 from NydusWorm import NydusWorm
 from DummyAsyncModule import DummyAsyncModule
@@ -116,4 +116,4 @@ The string added when you add a module to the setupfile is the command to run th
 
 "python "{path}\\\\DummyLauncher.py""
 
-runs dummy launcher with the framework. You cannot simply run this command from the command line as there will be a port added to the arguments from c# at runtime.
+Runs dummy launcher with the framework. You cannot simply run this command from the command line as there will be a port added to the arguments from c# at runtime.
