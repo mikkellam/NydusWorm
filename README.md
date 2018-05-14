@@ -6,6 +6,8 @@ Make sure you have:
 
 [Starcraft II](https://starcraft2.com/)
 
+The map "AbiogenesisLE.SC2Map" which is part of the ladder 2018 season 1 maps that can be downloaded [here](https://github.com/Blizzard/s2client-proto#downloads)
+
 [The dotnetcore SDK(version 2.1.103)](https://www.microsoft.com/net/download/windows)
 
 [Python(3.6.4)](https://www.python.org/downloads/)
