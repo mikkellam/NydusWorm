@@ -4,7 +4,6 @@ import sys
 sys.path.insert(0, dir_path + "/protocol")
 from abc import ABC, abstractmethod
 import abathur_pb2
-import threading
 
 class IAsyncModule(ABC):
 
@@ -21,12 +20,13 @@ class IAsyncModule(ABC):
         """callback method. Called when the sc2 game is started"""
         print("implement game_start")
 
-    def request_intel_update(self, wait = True, mmap=True, score=True, common=True, upgrades_self=True,
+    def request_intel_update(self, wait=True, mmap=True, score=True, common=True, upgrades_self=True,
                              buildings_self=True, units_self=True, workers_self=True,
                              destructibles=True, structures_enemy=True, units_enemy=True,
                              workers_enemy=True, primary_colony=True, colonies=True,
                              mineral_fields=True, VespeneGeysers=True, production_queue=True,
-                             squads=True, game_loop=True):
+                             squads=True, game_loop=True, feature_data=False, render_data=False,
+                             ui_data=False):
         """
         method that requests an update of the IntelManager
 
@@ -49,6 +49,9 @@ class IAsyncModule(ABC):
         :param production_queue: receive the production queue
         :param squads: receive all squads
         :param game_loop: receive the current gameloop
+        :param feature_data: receive the data for the feature layer
+        :param render_data: receive remder_data
+        :param ui_data: receive ui data
         :return: None
         """
         intel_req = abathur_pb2.IntelRequest()
@@ -70,6 +73,9 @@ class IAsyncModule(ABC):
         intel_req.production_queue = production_queue
         intel_req.squads = squads
         intel_req.game_loop = game_loop
+        intel_req.feature_layer_data = feature_data
+        intel_req.render_data = render_data
+        intel_req.ui_data = ui_data
         self.proxy_man.intel_received.clear()
         self.proxy_man.answers.put(intel_req)
         if wait:

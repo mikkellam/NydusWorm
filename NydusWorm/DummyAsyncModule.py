@@ -48,7 +48,7 @@ class DummyAsyncModule(IAsyncModule):
         # Create a squad for easier unit manipulation
         self.the_gang = self.intel_man.squad_repository.create("TheGang")
 
-        # Regiter handler to react to new units being added
+        # Register handler to react to new units being added
         self.intel_man.handler.register_handler(abathur_pb2.UnitAddedSelf, lambda u: self.the_gang.add_unit(u))
 
         # Start a thread for regularly checking the state of the game
@@ -67,7 +67,7 @@ class DummyAsyncModule(IAsyncModule):
         while self.game_running:
             # Request that the IntelManager is updated
             self.request_intel_update()
-            # Add all workers out squad
+            # Add all workers to squad
             for worker in self.intel_man.get_workers_self():
                 self.the_gang.add_unit(worker)
             # if we have produced all 10 marines we will have a total of 22 members of our squad

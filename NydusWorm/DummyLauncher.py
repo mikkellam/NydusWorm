@@ -13,8 +13,8 @@ class DummyLauncher(NydusWorm):
         prod_man = services.get(ProductionManager)
         combat_man = services.get(CombatManager)
         intel_man = services.get(IntelManager)
-        manager.add_module(DummyAsyncModule(manager, intel_man, combat_man, prod_man))
-        # manager.add_module(DummyModule(prod_man, intel_man, combat_man))
+        #manager.add_module(DummyAsyncModule(manager, intel_man, combat_man, prod_man))
+        manager.add_module(DummyModule(prod_man, intel_man, combat_man))
 
 
 launcher = DummyLauncher()

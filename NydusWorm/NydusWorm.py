@@ -30,9 +30,9 @@ class NydusWorm(ABC):
     def handle_notification(self, manag, m):
         """Calls appropriate modules callback depending on notification type
 
-        Keyword arguments:
-        manag -- ProxyManager containing the active modules
-        m     -- the notification being handled
+        :param manag:ProxyManager containing the active modules
+        :param m:the notification being handled
+        :return:
         """
         if m.notification.type == abathur_pb2.Initialize:
             for module in manag.modules:
@@ -61,17 +61,17 @@ class NydusWorm(ABC):
     def add_modules(self, manager, services):
         """Adds all modules that should be called during program execution
 
-           Keyword arguments:
-           manager -- The ProxyManager giving access to rawcommands and managing the connection  to c#
-           services -- a dictionary holding {type : service} pairs.
+        :param manager: The ProxyManager giving access to rawcommands and managing the connection  to c#
+        :param services: a dictionary holding {type : service} pairs.
+        :return:
         """
         print("add all the modules you want to run in the framework")
 
     def load_essence_file(self, path):
         """load the essence file from disk and construct services with the data
 
-            Keyword arguments:
-            path -- string representing the path to the essence.data file
+        :param path: string representing the path to the essence.data file
+        :return:
         """
         services = {}
         es = essence_pb2.Essence()
@@ -98,8 +98,8 @@ class NydusWorm(ABC):
     def launch_framework(self, args):
         """Connect to C#, setup services and mediate communication to c#
 
-        Keyword arguments:
-        args -- string array of args containing the port to connect to
+        :param args: string array of args containing the port to connect to
+        :return:
         """
         if len(args) is not 2:
             print("incorrect arguments. proper usage: \npython <NydusWorm childs filename>.py <port>")
@@ -109,13 +109,13 @@ class NydusWorm(ABC):
         try:
             self.man = proxy_manager.ProxyManager(p)
             print("Python is Connected")
-            services = self.load_essence_file(essence_path) #TODO Dont Use my hardcoded path
+            services = self.load_essence_file(essence_path)
             services.update({CombatManager: CombatManager(self.man)})
             services.update({ProductionManager: ProductionManager(self.man)})
 
             intel_man = IntelManager()
             services.update({type(intel_man): intel_man})
-            self.add_modules(self.man, services) #TODO put proxy manager in services?
+            self.add_modules(self.man, services)
             for mod in self.man.modules:
                 if isinstance(mod, IModule.IModule):
                     self.only_async = False
@@ -136,7 +136,7 @@ class NydusWorm(ABC):
                             if not self.handle_notification(self.man, m):
                                 continue
 
-                    for request in intel_man.squad_repository.requests: #TODO place somwhere else? avoid this much nesting?
+                    for request in intel_man.squad_repository.requests:
                         self.man.answers.put(request)
                     for squad in intel_man.squad_repository.squads.values():
                         for request in squad.requests:
@@ -148,7 +148,7 @@ class NydusWorm(ABC):
                         ab_request = abathur_pb2.AbathurRequest()
                         while not self.man.answers.empty():
                             request = self.man.answers.get()
-                            if isinstance(request, abathur_pb2.CombatRequest): #TODO save in separate lists?
+                            if isinstance(request, abathur_pb2.CombatRequest):
                                 ab_request.combat.extend([request])
                             else:
                                 if isinstance(request, abathur_pb2.ProductionRequest):

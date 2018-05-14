@@ -57,7 +57,7 @@ class SquadRepository:
     def get(self):
         return self.squads
 
-    def remove(self, squad):# TODO Remove this method?
+    def remove(self, squad):
         """Remove given squad from the repository"""
         combat_req = abathur_pb2.CombatRequest()
         squad_req = abathur_pb2.SquadRequest()

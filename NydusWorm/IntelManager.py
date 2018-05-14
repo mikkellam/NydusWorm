@@ -10,6 +10,7 @@ from IntelUnit import IntelUnit
 from SquadRepository import SquadRepository
 import CaseHandler
 
+
 class IntelManager:
     """Stores data about the current game state"""
     game_loop = 0
@@ -18,7 +19,7 @@ class IntelManager:
         self.map = abathur_pb2.AbathurMap()  # TODO this is an empty datastructe atm
         self.score = score_pb2.Score()
         self.common = sc2api_pb2.PlayerCommon()
-        self.handler = CaseHandler.CaseHandler() #TODO not being used yet.
+        self.handler = CaseHandler.CaseHandler()
         self.upgrades_self = []
         self.buildings_self = {}  # uint -> intelUnit
         self.units_self = {}  # uint -> intelUnit
@@ -33,6 +34,9 @@ class IntelManager:
         self.vespene_geysers = {}  # uint -> intelUnit
         self.production_queue = []
         self.squad_repository = SquadRepository()
+        self.feature_layer_data = None
+        self.render_data = None
+        self.ui_data = None
 
     def update_intel(self, intel):
         """
@@ -92,6 +96,13 @@ class IntelManager:
             squad = self.squad_repository.internal_update(squad_data.squad_id, squad_data.name)
             for unit in squad_data.units:
                 squad.units.add(IntelUnit(unit, self.game_loop))
+
+        if intel.HasField("feature_layer_data"):
+            self.feature_layer_data = intel.feature_layer_data
+        if intel.HasField("render_data"):
+            self.render_data = intel.render_data
+        if intel.HasField("ui_data"):
+            self.ui_data = intel.ui_data
 
         for event in intel.events:
             self.handler.handle(event.case_type, self.try_get(event.unit_tag))
