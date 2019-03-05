@@ -112,6 +112,7 @@ class CombatManager:
         """
         combat_req = abathur_pb2.CombatRequest()
         move_unit = abathur_pb2.UseTargetedAbilityUnit()
+        move_unit.ability_id = ability_id
         move_unit.source_unit = using_unit_tag
         move_unit.target_unit = target_unit_tag
         move_unit.queue = queue
@@ -128,6 +129,7 @@ class CombatManager:
         """
         combat_req = abathur_pb2.CombatRequest()
         move_unit = abathur_pb2.UseTargetedAbilitySquad()
+        move_unit.ability_id = ability_id
         move_unit.squad = squad_id
         move_unit.target_unit = target_unit_tag
         move_unit.queue = queue
@@ -144,6 +146,7 @@ class CombatManager:
         """
         combat_req = abathur_pb2.CombatRequest()
         move_unit = abathur_pb2.UsePointCenteredAbilityUnit()
+        move_unit.ability_id = ability_id
         move_unit.source_unit = using_unit_tag
         move_unit.point.CopyFrom(point)
         move_unit.queue = queue
@@ -160,6 +163,7 @@ class CombatManager:
         """
         combat_req = abathur_pb2.CombatRequest()
         move_unit = abathur_pb2.UsePointCenteredAbilitySquad()
+        move_unit.ability_id = ability_id
         move_unit.squad = squad_id
         move_unit.point.CopyFrom(point)
         move_unit.queue = queue
@@ -175,6 +179,7 @@ class CombatManager:
         """
         combat_req = abathur_pb2.CombatRequest()
         move_unit = abathur_pb2.UseTargetlessAbilityUnit()
+        move_unit.ability_id = ability_id
         move_unit.source_unit = unit_tag
         move_unit.queue = queue
         combat_req.use_targetless_ability_unit.CopyFrom(move_unit)
@@ -189,6 +194,7 @@ class CombatManager:
         """
         combat_req = abathur_pb2.CombatRequest()
         move_unit = abathur_pb2.UseTargetlessAbilitySquad()
+        move_unit.ability_id = ability_id
         move_unit.squad = squad_id
         move_unit.queue = queue
         combat_req.use_targetless_ability_squad.CopyFrom(move_unit)

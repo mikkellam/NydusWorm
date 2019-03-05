@@ -45,12 +45,12 @@ class SquadRepository:
         return squad
 
     def get_by_id(self, squad_id):
-        for squad in self.squads:
+        for squad in self.squads.values():
             if int(squad.id) == squad_id:
                 return squad
 
     def get_by_name(self, name):
-        for squad in self.squads:
+        for squad in self.squads.values():
             if squad.name == name:
                 return squad
 
